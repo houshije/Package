@@ -1,0 +1,24 @@
+#!/bin/bash
+
+#--remove-brackets \
+
+options="--style=linux \
+--indent=spaces=4 \
+--indent-cases \
+--pad-oper \
+--pad-header \
+--align-reference=type \
+--align-pointer=type \
+--convert-tabs \
+--suffix=none \
+--lineend=linux \
+--unpad-paren"
+
+if [ $# -gt 0 ]; then
+    source_files="$@"
+else
+    echo "Usage: checkpatch <sources>"
+    exit 1
+fi
+
+astyle ${options} ${source_files}
